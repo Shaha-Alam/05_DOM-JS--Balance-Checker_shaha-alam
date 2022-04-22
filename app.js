@@ -51,3 +51,18 @@ function saveCalc(money, saving, extra) {
     }
 
 }
+
+//Clicking Calculate Button
+document.querySelector('#calc-btn').addEventListener('click', () => {
+    expenditure = totalExpense(food.value, rent.value, clothes.value);
+    console.log(expenditure);
+    const extraMoney = remainingBalance(income.value, expenditure);
+    document.querySelector('#remaining-balance').innerText = extraMoney;
+    console.log(extraMoney);
+})
+
+//Clicking Save Button
+document.querySelector('#save-btn').addEventListener('click', () => {
+    const extraMoney = remainingBalance(income.value, expenditure);
+    saveCalc(income.value, saving.value, extraMoney);
+})
