@@ -18,3 +18,36 @@ function totalExpense(meals, shelter, dress) {
 
 }
 
+
+//Remaining Balance Calculation
+function remainingBalance(totalMoney, expense) {
+    const incomeMoney = parseFloat(totalMoney);
+    if (incomeMoney < 0) {
+        alert('invalid income amount is given');
+    } else {
+        const leftOverMoney = parseFloat(incomeMoney) - expense;
+        return leftOverMoney;
+    }
+    return 0;
+}
+
+//Saving Amount Calculation
+function saveCalc(money, saving, extra) {
+    const savingPercentage = parseFloat(saving);
+    if (savingPercentage < 0) {
+        alert('inavlid saving percentage is given');
+    } else {
+        let savingCalc = parseFloat(money) * (savingPercentage / 100);
+        console.log(savingCalc);
+        if (savingCalc > extra) {
+            alert(`Not enough money for saving ${savingPercentage}%`);
+        } else {
+            let savingMoney = extra - savingCalc;
+            console.log(savingMoney);
+            document.querySelector('#saving-amount').innerText = savingCalc;
+            document.querySelector('#remaining-amount').innerText = savingMoney;
+        }
+
+    }
+
+}
